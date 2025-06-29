@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Auto-reload main.py with watchmedo",
+			"command": "/home/rodri/src/game-store-management/venv/bin/watchmedo",
+			"args": [
+				"auto-restart",
+				"--patterns=*.py",
+				"--",
+				"/home/rodri/src/game-store-management/venv/bin/python",
+				"main.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}
