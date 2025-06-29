@@ -46,6 +46,8 @@ def buy_game():
     if not game:
         print(f"Game '{game_name}' not found.")
         return
+    
+    gameManager.buy(game_name, current_user)
 
     global store_balance
 
@@ -102,8 +104,7 @@ while True:
     if sanitized_username != "admin" and sanitized_username != "user":
         break
 
-    if sanitized_username == "admin":
-        current_user = "admin"
+    current_user = sanitized_username
 
     if current_user == "admin":
         print_admin_menu()

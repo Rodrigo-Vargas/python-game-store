@@ -1,12 +1,17 @@
 from store.database import Database
-
+import uuid
 
 class Games:
     def add(self, name, genre, price):
         database = Database()
         data = database.load
 
-        data.products.append({"name": name, "genre": genre, "price": float(price)})
+        data["products"].append({
+            "id": str(uuid.uuid4()),
+            "name": name,
+            "genre": genre,
+            "price": float(price)
+        })
 
         database.save(data)
 
@@ -15,6 +20,28 @@ class Games:
         data = database.load()
 
         return data["products"]
+    
+    def buy(self, name, current_user):
+        database = Database()
+        data = database.load()
+
+        game_id = ""
+
+        for game in data["products"]:
+            if game["name"].lower() == name.lower():
+                game_id = game["id"]
+                break
+        
+        if game_id != "":
+            for user in data["users"]:
+                if user["name"].lower() == current_user.lower():
+                    user["games"].append(game_id)
+
+                    user["balance"] -= game["price"]
+                    break
+            database.save(data)
+
+        return False
 
     def get_by_name(self, name):
         database = Database()

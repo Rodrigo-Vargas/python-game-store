@@ -1,5 +1,12 @@
 # Game store management
 
+## Getting started
+```
+venv/bin/watchmedo auto-restart --patterns="*.py" -- venv/bin/python main.py
+```
+
+## Requisites
+
 ## Admin Features
  - Admin should be able to add a game with required fields: name, price, genre.
  - Admin should be able to edit an existing game.
