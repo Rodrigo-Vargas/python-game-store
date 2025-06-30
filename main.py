@@ -55,6 +55,15 @@ def evaluate_user_option():
     if option == "l":
         menu.list_games()
 
+    if option == "ua":
+        menu.add_user()
+
+    if option == "ue":
+        menu.edit_user()
+    
+    if option == "ud":
+        menu.delete_user()
+
     return True
 
 # os.system('clear')

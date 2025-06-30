@@ -6,8 +6,6 @@ class Games:
         database = Database()
         data = database.load()
 
-        print(data)
-
         data["products"].append({
             "id": str(uuid.uuid4()),
             "name": name,

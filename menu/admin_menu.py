@@ -1,5 +1,6 @@
 from menu.base_menu import BaseMenu
 from store.games import Games
+from store.users import Users
 
 class AdminMenu(BaseMenu):
     def print(self):
@@ -10,6 +11,9 @@ class AdminMenu(BaseMenu):
         print("u - Update a game")
         print("l - List all games")
         print("s - Search for a game")
+        print("ua - Add a user")
+        print("ue - Edit a user")
+        print("ud - Delete a user")
         print("q - Quit program")
 
     def add_game(self):
@@ -42,3 +46,29 @@ class AdminMenu(BaseMenu):
         gameManager.add(name, genre, price)
 
         print(f"Game '{name}' added successfully!")
+
+    def add_user(self):
+        user_name = input("Enter the name of the user to add: ")
+        user_balance = input("Enter the balance of the user (default is 0): ")
+
+        userManager = Users()
+        userManager.add(user_name, user_balance)
+
+        print(f"User '{user_name}' added successfully!")
+
+    def edit_user(self):
+        name = input("Enter the name of the user to edit: ")
+        balance = input("Enter the new balance of the user: ")
+
+        userManager = Users()
+        userManager.edit(name, balance)
+
+        print(f"User '{name}' edited successfully!")
+
+    def delete_user(self):
+        name = input("Enter the name of the user to delete: ")
+
+        userManager = Users()
+        userManager.delete(name)
+
+        print(f"User '{name}' deleted successfully!")
