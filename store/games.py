@@ -1,74 +1,51 @@
-from store.database import Database
-import uuid
+from models.game import Game
+
+from store.database_factory import DatabaseFactory
 
 class Games:
+    def __init__(self):
+        self.database = DatabaseFactory.get_database()
+
     def add(self, name, genre, price):
-        database = Database()
-        data = database.load()
+        self.database.add_game(name, genre, price)
 
-        data["products"].append({
-            "id": str(uuid.uuid4()),
-            "name": name,
-            "genre": genre,
-            "price": float(price)
-        })
-
-        database.save(data)
-
-    def edit(self, name, genre, price):
-        database = Database()
-        data = database.load()
-
-        for game in data["products"]:
-            if game["name"].lower() == name.lower():
-                game["genre"] = genre
-                game["price"] = float(price)
-                break
+    def edit(self, name, genre, price):        
+        existent_game = self.database.get_game_by_name(name)
         
-        database.save(data)
+        game = Game()
+        game.id = existent_game.id
+        game.name = name
+        game.genre = genre
+        game.price = float(price)
+
+        self.database.edit_game(game)
 
     def delete(self, name):
-        database = Database()
-        data = database.load()
-
-        data["products"] = [game for game in data["products"] if game["name"].lower() != name.lower()]
-
-        database.save(data)
+        game = self.database.get_game_by_name(name)
+        self.database.delete(game.id)
 
     def list_all(self):
-        database = Database()
-        data = database.load()
-
-        return data["products"]
+        return self.database.list_all()
     
     def buy(self, name, current_user):
-        database = Database()
-        data = database.load()
-
-        game_id = ""
-
-        for game in data["products"]:
-            if game["name"].lower() == name.lower():
-                game_id = game["id"]
-                break
+        # data = self.database.load()
+        game = self.database.get_game_by_name(name)
         
-        if game_id != "":
-            for user in data["users"]:
-                if user["name"].lower() == current_user.lower():
-                    user["games"].append(game_id)
+        if game.id != "":
+            user = self.database.get_user_by_name(current_user.lower())
+            user.balance -= game.price
+            self.database.edit_user(user)
+            
+            # for user in data["users"]:
+            #     if user["name"].lower() == current_user.lower():
+            #         user["games"].append(game.id)
 
-                    user["balance"] -= game["price"]
-                    break
-            database.save(data)
+            #         user["balance"] -= game["price"]
+            #         break
+            # self.database.save(data)
+            return True
 
         return False
 
     def get_by_name(self, name):
-        database = Database()
-        data = database.load()
-
-        for game in data["products"]:
-            if game["name"].lower() == name.lower():
-                return game
-
-        return None
+        return self.database.get_game_by_name(name)

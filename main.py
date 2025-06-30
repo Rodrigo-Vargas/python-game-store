@@ -29,8 +29,8 @@ def buy_game():
 
     global store_balance
 
-    store_balance += game['price']
-    print(f"You have successfully bought '{game_name}' for {game['price']}. Store balance: {store_balance}")
+    store_balance += game.price
+    print(f"You have successfully bought '{game_name}' for {game.price}. Store balance: {store_balance}")
 
 
 def evaluate_user_option():

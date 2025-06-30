@@ -14,4 +14,4 @@ class BaseMenu():
 
         print("Available games:")
         for game in games:
-            print(f"Name: {game['name']}, Genre: {game['genre']}, Price: {game['price']}")
+            print(f"Name: {game.name}, Genre: {game.genre}, Price: {game.price}")
