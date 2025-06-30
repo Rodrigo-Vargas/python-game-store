@@ -51,3 +51,139 @@ venv/bin/watchmedo auto-restart --patterns="*.py" -- venv/bin/python main.py
  - Logging system to record all transactions and admin operations
  - Pagination or filtering support for game browsing (by genre, price, etc.)
  - Display user current balance on main screen
+
+ # Concepts
+ - Primitive types
+    - [] Variables
+    - [] Variables Names
+    - [] Strings
+    - [] Type Conversion
+    - [] Escape Sequences
+    - [] Formatted Strings
+    - [] String Methods
+    - [] Numbers
+    - [] Working with Numbers
+
+- Control Flow
+    - [] Comparison Operators
+    - [] Conditional Statements
+    - [] Ternary Operator
+    - [] Logical Operators
+    - [] Short-circuit Evaluation
+    - [] Chaining Comparison Operators
+    - [] Quiz
+    - [] For Loops
+    - [] For..Else
+    - [] Nested Loops
+    - [] Iterables
+    - [] While Loops
+    - [] Comparison Operators
+    - [] Infinite Loops
+
+- Functions
+    - [] Defining Functions
+    - [] Arguments
+    - [] Types of Functions
+    - [] Keyword Arguments
+    - [] Default Arguments
+    - [] xargs
+    - [] xxargs
+    - [] Scope
+    - [] Debugging
+
+- Data Structures
+    - [] Lists
+    - [] Accessing Items
+    - [] List Unpacking
+    - [] Looping over Lists
+    - [] Adding or Removing Items
+    - [] Finding Items
+    - [] Sorting Lists
+    - [] Lambda Functions
+    - [] Map Function
+    - [] Filter Function
+    - [] List Comprehensions
+    - [] Zip Function
+    - [] Stacks
+    - [] Queues
+    - [] Tuples
+    - [] Swapping Variables
+    - [] Arrays
+    - [] Sets
+    - [] Dictionaries
+    - [] Dictionary Comprehensions
+    - [] Generator Expressions
+    - [] Unpacking Operator
+
+- Exceptions
+    - [] Exceptions
+    - [] Handling Exceptions
+    - [] Handling Different Exceptions
+    - [] Cleaning Up
+    - [] The With Statement
+    - [] Raising Exceptions
+    - [] Cost of Raising Exceptions
+
+
+- Classes
+    - [] Creating Classes
+    - [] Constructors
+    - [] Class vs Instance Attributes
+    - [] Class vs Instance Methods
+    - [] Magic Methods
+    - [] Comparing Objects
+    - [] Performing Arithmetic Operations
+    - [] Making Custom Containers
+    - [] Private Members
+    - [] Properties
+    - [] Inheritance
+    - [] The Object Class
+    - [] Method Overriding
+    - [] Multi-level Inheritance
+    - [] Multiple Inheritance
+    - [] A Good Example of Inheritance
+    - [] Abstract Base Classes
+    - [] Polymorphism
+    - [] Duck Typing
+    - [] Extending Built-in Types
+    - [] Data Classes
+
+
+- Creating Modules
+    - [] Compiled Python Files
+    - [] Module Search Path
+    - [] Packages
+    - [] Sub-packages
+    - [] Intra-package References
+    - [] The dir Function
+    - [] Executing Modules as Scripts
+
+- Python Standard Library
+    - [] Working With Paths
+    - [] Working with Directories
+    - [] Working with Files
+    - [] Working with Zip Files
+    - [] Working with CSV Files
+    - [] Working with JSON Files
+    - [] Working with a SQLite Database
+    - [] Working with Timestamps
+    - [] Working with DateTimes
+    - [] Working with Time Deltas
+    - [] Generating Random Values
+    - [] Opening the Browser
+    - [] Sending Emails
+    - [] Templates
+    - [] Command-line Arguments
+    - [] Running External Programs
+
+- Python Package Index
+    - [] Pypi
+    - [] Pip
+    - [] Virtual Environments
+    - [] Pipenv
+    - [] Virtual Environments in VSCode
+    - [] Pipfile
+    - [] Managing Dependencies
+    - [] Publishing Packages
+    - [] Docstrings
+    - [] Pydoc

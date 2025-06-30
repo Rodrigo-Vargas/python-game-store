@@ -4,7 +4,9 @@ import uuid
 class Games:
     def add(self, name, genre, price):
         database = Database()
-        data = database.load
+        data = database.load()
+
+        print(data)
 
         data["products"].append({
             "id": str(uuid.uuid4()),
@@ -13,6 +15,18 @@ class Games:
             "price": float(price)
         })
 
+        database.save(data)
+
+    def edit(self, name, genre, price):
+        database = Database()
+        data = database.load()
+
+        for game in data["products"]:
+            if game["name"].lower() == name.lower():
+                game["genre"] = genre
+                game["price"] = float(price)
+                break
+        
         database.save(data)
 
     def list_all(self):
