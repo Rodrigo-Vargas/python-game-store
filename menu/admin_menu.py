@@ -29,6 +29,14 @@ class AdminMenu(BaseMenu):
         
         print(f"Game '{name}' edited successfully!")
 
+    def delete_game(self):
+        name = input("Enter the name of the game to delete: ")
+
+        gameManager = Games()
+        gameManager.delete(name)
+
+        print(f"Game '{name}' deleted successfully!")
+
     def save_game_data(self, name, genre, price):
         gameManager = Games()
         gameManager.add(name, genre, price)

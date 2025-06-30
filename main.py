@@ -46,6 +46,9 @@ def evaluate_user_option():
     if option == "b":
         buy_game()
 
+    if option == "d":
+        menu.delete_game()
+
     if option == "e":
         menu.edit_game()
 

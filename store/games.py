@@ -29,6 +29,14 @@ class Games:
         
         database.save(data)
 
+    def delete(self, name):
+        database = Database()
+        data = database.load()
+
+        data["products"] = [game for game in data["products"] if game["name"].lower() != name.lower()]
+
+        database.save(data)
+
     def list_all(self):
         database = Database()
         data = database.load()
