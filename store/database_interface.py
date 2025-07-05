@@ -19,3 +19,9 @@ class DatabaseInterface:
     
     def edit_user(self, user):
         raise NotImplementedError
+    
+    def add_user(self, name, balance=0):
+        raise NotImplementedError
+    
+    def delete_user(self, user_name):
+        raise NotImplementedError

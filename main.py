@@ -11,9 +11,10 @@ menu = None
 
 def print_welcome_message():
     print("*********************************")
+    print("\n")
     print("* Welcome to Game Store manager *")
     print("*********************************")
-    print("Enter your username")
+    print("Enter your username: ")
 
 
 def buy_game():

@@ -96,3 +96,18 @@ class SqliteDatabase(DatabaseInterface):
                        (float(user.balance), user.games, user.name))
         conn.commit()
         conn.close()
+
+    def add_user(self, name, balance=0):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO users (name, balance, games) VALUES (?, ?, ?)',
+                       (name, float(balance), "[]"))
+        conn.commit()
+        conn.close()
+
+    def delete_user(self, user_name):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM users WHERE name = ?', (user_name,))
+        conn.commit()
+        conn.close()

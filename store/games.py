@@ -28,7 +28,6 @@ class Games:
         return self.database.list_all()
     
     def buy(self, name, current_user):
-        # data = self.database.load()
         game = self.database.get_game_by_name(name)
         
         if game.id != "":
@@ -36,13 +35,6 @@ class Games:
             user.balance -= game.price
             self.database.edit_user(user)
             
-            # for user in data["users"]:
-            #     if user["name"].lower() == current_user.lower():
-            #         user["games"].append(game.id)
-
-            #         user["balance"] -= game["price"]
-            #         break
-            # self.database.save(data)
             return True
 
         return False

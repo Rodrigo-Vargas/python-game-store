@@ -59,7 +59,15 @@ class JsonDatabase(DatabaseInterface):
 
     def list_all(self):
         data = self._load()
-        return data["products"]
+        return [
+            Game(
+            id=game_data["id"],
+            name=game_data["name"],
+            genre=game_data["genre"],
+            price=game_data["price"]
+            )
+            for game_data in data["products"]
+        ]
     
     def get_user_by_name(self, user_name):
         data = self._load()
@@ -80,4 +88,20 @@ class JsonDatabase(DatabaseInterface):
                 existing_user["balance"] = float(user.balance)
                 existing_user["games"] = user.games
                 break
+        self._save(data)
+
+    def add_user(self, name, balance=0):
+        data = self._load()
+        new_user = {
+            "id": str(uuid.uuid4()),
+            "name": name,
+            "balance": float(balance),
+            "games": []
+        }
+        data["users"].append(new_user)
+        self._save(data)
+
+    def delete_user(self, user_name):
+        data = self._load()
+        data["users"] = [user for user in data["users"] if user["name"].lower() != user_name.lower()]
         self._save(data)

@@ -12,6 +12,19 @@ class BaseMenu():
             print("No games available.")
             return
 
-        print("Available games:")
+        self._print_header()
         for game in games:
-            print(f"Name: {game.name}, Genre: {game.genre}, Price: {game.price}")
+            self._print_game_row(
+                game.id,
+                game.name,
+                game.price,
+                game.genre
+            )
+
+    def _print_header(self):
+        print("ID   Name            Price   Genre")
+        print("--   --------------  ------- ------------- ")
+
+    def _print_game_row(self, id, name, price, genre):
+        print(f"{id:<4} {name:<15} {price:<7} {genre:<9}")
+        
